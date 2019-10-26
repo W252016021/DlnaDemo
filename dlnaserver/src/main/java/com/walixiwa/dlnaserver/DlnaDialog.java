@@ -86,7 +86,8 @@ public class DlnaDialog extends AlertDialog.Builder {
             @Override
             public void onItemClick(DeviceModel display) {
                 //ll_find.setVisibility(View.VISIBLE);
-                tv_info.setText("正在投送到设备...");
+                //tv_info.setText("正在投送到设备...");
+                Toast.makeText(context, "正在投送到设备...", Toast.LENGTH_SHORT).show();
                 DlnaCtrlUtil.startUrl(display, upnpService, url.replace("127.0.0.1", getLANAddress()), new DlnaCtrlUtil.OnPlayCallBack() {
                     @Override
                     public void onPlayCallBack(final boolean result) {
@@ -94,7 +95,8 @@ public class DlnaDialog extends AlertDialog.Builder {
                             @Override
                             public void run() {
                                 //ll_find.setVisibility(View.GONE);
-                                tv_info.setText("已投送到设备...");
+                                //tv_info.setText("已投送到设备...");
+                                Toast.makeText(context, "已投送到设备", Toast.LENGTH_SHORT).show();
                             }
                         });
                     }
@@ -210,7 +212,7 @@ public class DlnaDialog extends AlertDialog.Builder {
                     }
                     adapter.notifyDataSetChanged();
 
-                    tv_info.setText("实时发现局域网设备...");
+                    //tv_info.setText("实时发现局域网设备...");
                     //ll_find.setVisibility(items.size() == 0 ? View.VISIBLE : View.GONE);
                 }
             });

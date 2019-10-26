@@ -30,7 +30,7 @@ public class DlnaItemBinder extends ItemViewBinder<DeviceModel, DlnaItemBinder.V
     @Override
     protected void onBindViewHolder(@NonNull ViewHolder holder, @NonNull final DeviceModel deviceModel) {
         holder.tv_title.setText(deviceModel.getDeviceName());
-        /* holder.v_line.setVisibility(holder.getAdapterPosition() == getAdapter().getItemCount() - 1 ? View.GONE : View.VISIBLE); */
+         holder.v_line.setVisibility(holder.getAdapterPosition() == getAdapter().getItemCount() - 1 ? View.GONE : View.VISIBLE);
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

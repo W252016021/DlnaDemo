@@ -10,29 +10,28 @@
         android:id="@+id/ll_find"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:gravity="start|center"
         android:orientation="horizontal"
-        android:padding="10dp">
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp">
 
-        <ProgressBar
-            android:id="@+id/loading"
-            android:layout_width="20dp"
-            android:layout_height="20dp" />
 
         <TextView
             android:id="@+id/tv_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:includeFontPadding="false"
-            android:paddingLeft="5dp"
-            android:paddingTop="10dp"
-            android:paddingRight="5dp"
-            android:paddingBottom="10dp"
-            android:text="实时发现局域网设备..."
+            android:text="DLNA投屏播放"
             android:textColor="#333333"
             android:textSize="17sp" />
 
-
+        <ProgressBar
+            android:id="@+id/loading"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:paddingLeft="5dp" />
     </LinearLayout>
 
 
