@@ -10,7 +10,7 @@
         android:id="@+id/ll_find"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="start|center"
+        android:gravity="start|center|center_vertical"
         android:orientation="horizontal"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
@@ -24,8 +24,9 @@
             android:layout_height="wrap_content"
             android:includeFontPadding="false"
             android:text="DLNA投屏播放"
-            android:textColor="#333333"
-            android:textSize="17sp" />
+            android:textColor="@android:color/black"
+            android:textSize="19sp"
+            android:typeface="monospace" />
 
         <ProgressBar
             android:id="@+id/loading"
@@ -34,6 +35,12 @@
             android:paddingLeft="5dp" />
     </LinearLayout>
 
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="#eaeaea" />
 
     <FrameLayout
         android:layout_width="match_parent"
