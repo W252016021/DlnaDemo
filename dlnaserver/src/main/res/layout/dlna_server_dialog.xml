@@ -10,7 +10,7 @@
         android:id="@+id/ll_find"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="start|center|center_vertical"
+        android:gravity="center"
         android:orientation="horizontal"
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
@@ -25,7 +25,7 @@
             android:includeFontPadding="false"
             android:text="DLNA投屏播放"
             android:textColor="@android:color/black"
-            android:textSize="19sp"
+            android:textSize="16sp"
             android:typeface="monospace" />
 
         <ProgressBar
@@ -50,12 +50,13 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_dlna"
+            android:minHeight="50dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:overScrollMode="never"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:spanCount="1"
-            tools:itemCount="4"
+            tools:itemCount="1"
             tools:listitem="@layout/item_dlna_display" />
     </FrameLayout>
 </LinearLayout>

@@ -62,13 +62,22 @@ public class DlnaDialog extends AlertDialog.Builder {
     private List<Object> items = new ArrayList<>();
 
     private LinearLayout ll_find;
-    private ProgressBar loading;
-    private TextView tv_info;
+
     private Handler handler = new Handler(Looper.getMainLooper());
 
-    public DlnaDialog(@NonNull final Context context) {
+    public DlnaDialog(@NonNull Context context, int style) {
+        super(context, style);
+        this.context = context;
+    }
+
+    public DlnaDialog(@NonNull Context context) {
         super(context, R.style.MyAlertDialogStyle);
         this.context = context;
+        init();
+    }
+
+    private void init() {
+
         View view = View.inflate(context, R.layout.dlna_server_dialog, null);
         this.setView(view);
 
@@ -79,14 +88,10 @@ public class DlnaDialog extends AlertDialog.Builder {
         recyclerView.setAdapter(adapter);
 
         ll_find = view.findViewById(R.id.ll_find);
-        loading = ll_find.findViewById(R.id.loading);
-        tv_info = ll_find.findViewById(R.id.tv_info);
 
         binder.setOnItemClickListener(new DlnaItemBinder.OnItemClickListener() {
             @Override
             public void onItemClick(DeviceModel display) {
-                //ll_find.setVisibility(View.VISIBLE);
-                //tv_info.setText("正在投送到设备...");
                 Toast.makeText(context, "正在投送到设备...", Toast.LENGTH_SHORT).show();
                 DlnaCtrlUtil.startUrl(display, upnpService, url.replace("127.0.0.1", getLANAddress()), new DlnaCtrlUtil.OnPlayCallBack() {
                     @Override
@@ -94,8 +99,6 @@ public class DlnaDialog extends AlertDialog.Builder {
                         handler.post(new Runnable() {
                             @Override
                             public void run() {
-                                //ll_find.setVisibility(View.GONE);
-                                //tv_info.setText("已投送到设备...");
                                 Toast.makeText(context, "已投送到设备", Toast.LENGTH_SHORT).show();
                             }
                         });
@@ -114,8 +117,6 @@ public class DlnaDialog extends AlertDialog.Builder {
         bindListener();
         context.bindService(new Intent(context, MyUpnpService.class), serviceConnection, Context.BIND_AUTO_CREATE);
     }
-
-
 
     public DlnaDialog setUrl(String url) {
         this.url = url;
